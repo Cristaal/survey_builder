@@ -66,6 +66,7 @@ GEM
     slop (3.6.0)
     thread_safe (0.3.4)
     tilt (1.4.1)
+    titlecase (0.1.1)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
 
@@ -81,3 +82,4 @@ DEPENDENCIES
   sinatra
   sinatra-activerecord
   sinatra-contrib
+  titlecase

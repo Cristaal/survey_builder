@@ -15,7 +15,7 @@ post('/survey') do
   erb(:index)
 end
 
-get('/survey/:id') do
+get("/survey/:id") do
   @survey = Survey.find(params.fetch("id"))
   erb(:create)
 end
