@@ -29,3 +29,9 @@ post("/question") do
   @questions = @survey.questions
   erb(:create)
 end
+
+get("/question/:id") do
+  @question = Question.find(params['id'].to_i())
+  @questions = Question.all()
+  erb(:edit_question)
+end

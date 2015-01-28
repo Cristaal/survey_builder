@@ -16,6 +16,6 @@
 </form>
 
 <ul><% @questions.each() do |question| %>
-    <li><%= question.title %></li>
+    <li><%= question.title %><a href='/question/<%= question.id %>'><button type="submit">Edit</button></a></li>
     <% end %>
 </ul>
