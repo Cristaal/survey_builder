@@ -17,14 +17,15 @@ end
 
 get("/survey/:id") do
   @survey = Survey.find(params.fetch("id"))
-  @questions = Question.all()
+  @questions = @survey.questions
   erb(:create)
 end
 
 post("/question") do
-  title = params['question']
-  survey_id=@survey.id
-  @question = Question.create({:title => title, :survey_id => survey_id})
-  @questions = Question.all()
+  question = params['question']
+  survey_id = params['survey_id']
+  @question = Question.create({:title => question, :survey_id => survey_id})
+  @survey = Survey.find(survey_id)
+  @questions = @survey.questions
   erb(:create)
 end
