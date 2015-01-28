@@ -4,5 +4,10 @@
   <label for='title'>Survey Title</label>
   <input id='title' name='title' type='text'>
 
-  <button type='submit' class='btn'>Create Survey.</button>
+  <button type='submit' class='btn'>Create Survey</button>
 </form>
+
+<ul><% @surveys.each() do |survey| %>
+<li><a href='/survey/<%= survey.id %>'> <%= survey.title %></a></li>
+<% end %>
+</ul>
