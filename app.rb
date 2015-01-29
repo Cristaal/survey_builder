@@ -21,6 +21,13 @@ get("/survey/:id") do
   erb(:create)
 end
 
+get('/question') do
+  survey_id = params['survey_id']
+  @survey = Survey.find(survey_id)
+  @questions = @survey.questions
+  erb(:create)
+end
+
 post("/question") do
   question = params['question']
   survey_id = params['survey_id']
@@ -34,4 +41,12 @@ get("/question/:id") do
   @question = Question.find(params['id'].to_i())
   @questions = Question.all()
   erb(:edit_question)
+end
+
+patch('/question/:id') do
+  title = params['name']
+  @question = Question.find(params['id'].to_i())
+  @question.update({:title => title})
+  @questions = Question.all
+  redirect('/question')
 end

@@ -1,8 +1,13 @@
-<h3><%= @question.title %> </h3>
+<h3><%= @question.title %> | <%= @question.survey_id() %></h3>
+
 <form action='/question/<%= @question.id %>' method='post'>
+  <input id="survey_id" name="survey_id" type="hidden" value="<%= @question.survey_id() %>">
+
   <input name='_method' type='hidden' value='patch'>
   <label for='name'>Change the question.</label>
   <input id='name' name='name' type='text'>
+
+
 
   <button type='submit'>Update</button>
 </form>
@@ -12,5 +17,5 @@
 
   <button type='submit'>Delete question</button>
 
-  <a href='/questions'>Return to question list</a>
+  <a href='/question'>Return to question list</a>
 </form>
